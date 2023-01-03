@@ -23,6 +23,7 @@ class SimpleFacerec:
 
         print("{} encoding images found.".format(len(images_path)))
 
+        # takes too much time when doing it for all the images that have in data source!!!
         # Store image encoding and names
         for img_path in images_path:
             img = cv2.imread(img_path)
@@ -58,11 +59,14 @@ class SimpleFacerec:
             #     first_match_index = matches.index(True)
             #     name = known_face_names[first_match_index]
 
-            # Or instead, use the known face with the smallest distance to the new face
+            # Or instead, use the known face with the smallest distance to the new face  -->
+            # its couse that i shani and itzik are the same person and also i and shani...
             face_distances = face_recognition.face_distance(self.known_face_encodings, face_encoding)
             best_match_index = np.argmin(face_distances)
+            # omit this code later...
             if matches[best_match_index]:
                 name = self.known_face_names[best_match_index]
+            # up to here!
             face_names.append(name)
 
         # Convert to numpy array to adjust coordinates with frame resizing quickly
