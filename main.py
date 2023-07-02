@@ -4,7 +4,9 @@ from simple_facerec import SimpleFacerec
 # 2 problems to corect, 1.its take too mutch time to incoding all datdbase images, 2. doesent differentiate between identical twins!! :(
 # Encode faces from a folder
 sfr= SimpleFacerec()
-sfr.load_encoding_images("images3/")
+
+#play the function with my images folder path
+sfr.load_encoding_images("images/")
 
 # load camera
 cap= cv2.VideoCapture(0)
